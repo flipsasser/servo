@@ -1,0 +1,14 @@
+#!/usr/bin/env ruby
+require 'rubygems'
+require 'rack'
+
+dir = ARGV.first && File.expand_path(ARGV.first) || Dir.pwd
+
+servo_app = Rack::Builder.new {
+  run Rack::Directory.new(dir)
+}
+
+server = Rack::Server.new
+server.options[:config] = nil
+server.instance_variable_set('@app', servo_app)
+server.start
