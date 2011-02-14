@@ -5,18 +5,23 @@
 
 Gem::Specification.new do |s|
   s.name = %q{servo}
-  s.version = "0.0.1"
+  s.version = "0.0.2"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Flip Sasser"]
   s.date = %q{2011-02-14}
+  s.default_executable = %q{servo}
   s.description = %q{
     Servo makes it dead simple to serve up a static filesystem using Rack::Directory.
   }
   s.email = %q{flip@x451.com}
+  s.executables = ["servo"]
+  s.extra_rdoc_files = [
+    "README.md"
+  ]
   s.files = [
-    "Rakefile",
-    "VERSION",
+    "README.md",
+    "Version",
     "bin/servo",
     "servo.gemspec"
   ]

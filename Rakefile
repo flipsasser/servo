@@ -2,7 +2,7 @@ require "jeweler"
 Jeweler::Tasks.new do |gemspec|
   gemspec.name = "servo"
   gemspec.summary = "A command-line static file server"
-  gemspec.files = Dir['**/*']
+  gemspec.files = Dir['bin/**/*', 'README.md', 'servo.gemspec', 'Version']
   gemspec.description = %{
     Servo makes it dead simple to serve up a static filesystem using Rack::Directory.
   }
