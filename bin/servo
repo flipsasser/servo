@@ -2,13 +2,14 @@
 require 'rubygems'
 require 'rack'
 
-dir = ARGV.first && File.expand_path(ARGV.first) || Dir.pwd
+dir  = ARGV.first && File.expand_path(ARGV.first) || Dir.pwd
+port = (Float(ARGV.last) rescue false || 9292).to_i
 
 servo_app = Rack::Builder.new {
   run Rack::Directory.new(dir)
 }
 
-server = Rack::Server.new
+server = Rack::Server.new(:Port => port)
 server.options[:config] = nil
 server.instance_variable_set('@app', servo_app)
 server.start
