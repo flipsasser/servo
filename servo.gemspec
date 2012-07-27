@@ -4,17 +4,14 @@
 # -*- encoding: utf-8 -*-
 
 Gem::Specification.new do |s|
-  s.name = %q{servo}
-  s.version = "0.0.2"
+  s.name = "servo"
+  s.version = "0.0.3"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Flip Sasser"]
-  s.date = %q{2011-02-14}
-  s.default_executable = %q{servo}
-  s.description = %q{
-    Servo makes it dead simple to serve up a static filesystem using Rack::Directory.
-  }
-  s.email = %q{flip@x451.com}
+  s.date = "2012-04-26"
+  s.description = "\n    Servo makes it dead simple to serve up a static filesystem using Rack::Directory.\n  "
+  s.email = "flip@x451.com"
   s.executables = ["servo"]
   s.extra_rdoc_files = [
     "README.md"
@@ -25,13 +22,12 @@ Gem::Specification.new do |s|
     "bin/servo",
     "servo.gemspec"
   ]
-  s.homepage = %q{http://github.com/flipsasser/servo}
+  s.homepage = "http://github.com/flipsasser/servo"
   s.require_paths = ["lib"]
-  s.rubygems_version = %q{1.3.7}
-  s.summary = %q{A command-line static file server}
+  s.rubygems_version = "1.8.10"
+  s.summary = "A command-line static file server"
 
   if s.respond_to? :specification_version then
-    current_version = Gem::Specification::CURRENT_SPECIFICATION_VERSION
     s.specification_version = 3
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then

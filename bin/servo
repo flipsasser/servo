@@ -1,15 +1,25 @@
 #!/usr/bin/env ruby
 require 'rubygems'
 require 'rack'
+require 'optparse'
+
+options = {:port => 9292}
+
+OptionParser.new do |opts|
+  opts.banner = "Usage: servo [options] [directory]"
+
+  opts.on('-p PORT', '--port PORT', 'Configure a port to run on. Default is 9292.') do |port|
+    options[:port] = port.to_i
+  end
+end.parse!
 
 dir  = ARGV.first && File.expand_path(ARGV.first) || Dir.pwd
-port = (Float(ARGV.last) rescue false || 9292).to_i
 
 servo_app = Rack::Builder.new {
   run Rack::Directory.new(dir)
 }
 
-server = Rack::Server.new(:Port => port)
+server = Rack::Server.new(:Port => options[:port])
 server.options[:config] = nil
 server.instance_variable_set('@app', servo_app)
 server.start
