@@ -6,7 +6,7 @@ require 'servo/directory_index'
 
 module Servo
   class << self
-    def app(dir)
+    def serve(dir)
       Rack::Builder.new {
         use Servo::DirectoryIndex, dir
         run Rack::Directory.new(dir)

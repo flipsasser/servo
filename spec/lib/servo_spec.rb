@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Servo do
   let(:servo_directory) { File.expand_path(File.join('..', 'fixtures'), File.dirname(__FILE__)) }
-  let(:app) { Servo.app(servo_directory) }
+  let(:app) { Servo.serve(servo_directory) }
 
   before do
     Capybara.app = app
