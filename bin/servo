@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 require 'rubygems'
-require 'rack'
 require 'optparse'
+require './lib/servo'
 
 options = {:port => 9292}
 
@@ -15,11 +15,7 @@ end.parse!
 
 dir  = ARGV.first && File.expand_path(ARGV.first) || Dir.pwd
 
-servo_app = Rack::Builder.new {
-  run Rack::Directory.new(dir)
-}
-
 server = Rack::Server.new(:Port => options[:port])
 server.options[:config] = nil
-server.instance_variable_set('@app', servo_app)
+server.instance_variable_set('@app', Servo.app(dir))
 server.start
